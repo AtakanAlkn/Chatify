@@ -1,5 +1,4 @@
-import {StyleSheet} from 'react-native';
-import {Dimensions} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 const screenHeight = Dimensions.get('screen').height;
 
 const styles = StyleSheet.create({

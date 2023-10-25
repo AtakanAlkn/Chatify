@@ -14,7 +14,7 @@ const OnBoardingScreen = ({navigation}) => {
       />
       <View style={{flex: 1}}>
         <Button
-          title="Create An Account"
+          title="Create Account"
           onPress={() => navigation.navigate('RegisterScreen')}
         />
         <View style={{height: 20}}></View>

@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LogInScreen from './screens/LogInScreen/LogIn';
 import RegisterScreen from './screens/RegisterScreen/RegisterScreen';
 import OnBoardingScreen from './screens/OnBoardingScreen/OnBoardingScreen';
+import HomeScreen from './screens/HomeScreen/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +15,7 @@ const Router = () => {
         <Stack.Screen name="OnBoardingScreen" component={OnBoardingScreen} />
         <Stack.Screen name="LogInScreen" component={LogInScreen} />
         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
