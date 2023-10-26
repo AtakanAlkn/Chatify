@@ -19,15 +19,13 @@ const HomeScreen = () => {
   };
 
   const handleCreateRoom = roomName => {
-    setVisibleModal(!visibleModal);
-
+    setLoading(true);
     database()
       .ref('users/')
       .orderByChild('email')
       .equalTo(auth().currentUser.email)
       .once('value')
       .then(snapshot => {
-        setLoading(true);
         const data = snapshot.val();
         if (data) {
           const values = Object.values(data);
@@ -45,6 +43,7 @@ const HomeScreen = () => {
                   message: 'Room created successfully',
                   type: 'success',
                 }),
+              setVisibleModal(!visibleModal),
               setLoading(false),
             )
             .catch(
@@ -53,6 +52,7 @@ const HomeScreen = () => {
                   message: error.code,
                   type: 'danger',
                 }),
+              setVisibleModal(!visibleModal),
               setLoading(false),
             );
         }

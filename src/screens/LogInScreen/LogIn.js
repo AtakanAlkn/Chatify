@@ -50,11 +50,7 @@ const LogInScreen = ({navigation}) => {
               <Text style={{textAlign: 'center', marginBottom: 20}}>
                 or login with
               </Text>
-              <Button
-                title="Login with Google"
-                theme="secondary"
-                onPress={() => navigation.navigate('TabBar')}
-              />
+              <Button title="Login with Google" theme="secondary" />
             </View>
           </>
         )}

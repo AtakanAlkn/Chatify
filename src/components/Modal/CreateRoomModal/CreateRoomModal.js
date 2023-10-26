@@ -10,7 +10,7 @@ const CreateRoomModal = ({isVisible, onClose, onCreateRoom, loadingButton}) => {
   const handleCreateRoom = () => {
     if (roomName) {
       onCreateRoom(roomName);
-      setTimeout(() => setRoomName(''), 2000);
+      setTimeout(() => setRoomName(''), 1000);
     }
   };
 
