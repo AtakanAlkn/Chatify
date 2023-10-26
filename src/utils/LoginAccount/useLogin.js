@@ -6,7 +6,7 @@ const useLogin = (values, navigation, setLoading) => {
   auth()
     .signInWithEmailAndPassword(values.email, values.password)
     .then(() => {
-      navigation.navigate('HomeScreen');
+      navigation.navigate('TabBar');
       setLoading(false);
     })
     .catch(error => {

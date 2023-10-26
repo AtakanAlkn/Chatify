@@ -7,6 +7,7 @@ import database from '@react-native-firebase/database';
 import auth from '@react-native-firebase/auth';
 import {showMessage} from 'react-native-flash-message';
 import RoomCard from './RoomCardComponent/RoomCard';
+import useParseRoomData from '../../utils/ParseData/useParseRoomData';
 
 const HomeScreen = () => {
   const [visibleModal, setVisibleModal] = React.useState(false);
@@ -18,57 +19,60 @@ const HomeScreen = () => {
   };
 
   const handleCreateRoom = roomName => {
-    setLoading(true);
-    /*
-    //Redux ile üste taşınacak ve düzeltilecek TODO
-    const email = auth().currentUser.email;
+    setVisibleModal(!visibleModal);
+
     database()
       .ref('users/')
       .orderByChild('email')
-      .equalTo(email)
+      .equalTo(auth().currentUser.email)
       .once('value')
       .then(snapshot => {
-        const name = Object.values(snapshot.val())[0].name;
-        const surname = Object.values(snapshot.val())[0].surname;
-        const fullName = name + surname;
+        setLoading(true);
+        const data = snapshot.val();
+        if (data) {
+          const values = Object.values(data);
+          const fullName = values[0].name + ' ' + values[0].surname;
+          database()
+            .ref('rooms/')
+            .push({
+              name: roomName,
+              creator: fullName,
+              date: new Date().toISOString(),
+            })
+            .then(
+              () =>
+                showMessage({
+                  message: 'Room created successfully',
+                  type: 'success',
+                }),
+              setLoading(false),
+            )
+            .catch(
+              error =>
+                showMessage({
+                  message: error.code,
+                  type: 'danger',
+                }),
+              setLoading(false),
+            );
+        }
       });
-*/
-    setVisibleModal(!visibleModal);
-    database()
-      .ref('rooms/')
-      .push({
-        name: roomName,
-        creator: 'Atakan',
-      })
-      .then(
-        () =>
-          showMessage({
-            message: 'Room created successfully',
-            type: 'success',
-          }),
-
-        setLoading(true),
-      )
-      .catch(
-        error =>
-          showMessage({
-            message: error.code,
-            type: 'danger',
-          }),
-        setLoading(false),
-      );
   };
 
   React.useEffect(() => {
     database()
       .ref('/rooms')
       .on('value', snapshot => {
-        setRoomList(Object.values(snapshot.val()).map(room => room.name));
+        const val = snapshot.val();
+        if (val) {
+          const parserdData = useParseRoomData(val);
+          setRoomList(parserdData);
+        }
       });
   }, []);
 
   const renderRoomCard = ({item}) => {
-    return <RoomCard title={item} onPress={() => console.log(item)} />;
+    return <RoomCard item={item} onPress={() => console.log(item.name)} />;
   };
 
   return (
@@ -77,6 +81,7 @@ const HomeScreen = () => {
       <FlatList
         data={roomList}
         renderItem={renderRoomCard}
+        keyExtractor={item => item.id}
         numColumns={2}
         showsVerticalScrollIndicator={false}
       />
