@@ -1,6 +1,5 @@
 import auth from '@react-native-firebase/auth';
 import {showMessage} from 'react-native-flash-message';
-import {err} from 'react-native-svg/lib/typescript/xml';
 
 const useLogin = (values, navigation, setLoading) => {
   setLoading(true);
@@ -14,6 +13,12 @@ const useLogin = (values, navigation, setLoading) => {
       if (error.code === 'auth/invalid-login') {
         showMessage({
           message: 'Invalid login',
+          type: 'danger',
+        });
+      }
+      if (error.code === 'auth/invalid-email') {
+        showMessage({
+          message: 'Invalid email',
           type: 'danger',
         });
       }
