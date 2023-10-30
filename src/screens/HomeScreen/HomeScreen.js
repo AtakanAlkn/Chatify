@@ -4,12 +4,12 @@ import styles from './HomeScreenStyle';
 import FloatingButton from '../../components/FloatingButton/FloatingButton';
 import CreateRoomModal from '../../components/Modal/CreateRoomModal/CreateRoomModal';
 import database from '@react-native-firebase/database';
-import auth from '@react-native-firebase/auth';
 import {showMessage} from 'react-native-flash-message';
 import RoomCard from './RoomCardComponent/RoomCard';
 import useParseRoomData from '../../utils/ParseData/useParseRoomData';
+import getFullName from '../../utils/FullName/getFullName';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const [visibleModal, setVisibleModal] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [roomList, setRoomList] = React.useState([]);
@@ -18,45 +18,28 @@ const HomeScreen = () => {
     setVisibleModal(!visibleModal);
   };
 
-  const handleCreateRoom = roomName => {
+  const handleCreateRoom = async roomName => {
     setLoading(true);
-    database()
-      .ref('users/')
-      .orderByChild('email')
-      .equalTo(auth().currentUser.email)
-      .once('value')
-      .then(snapshot => {
-        const data = snapshot.val();
-        if (data) {
-          const values = Object.values(data);
-          const fullName = values[0].name + ' ' + values[0].surname;
-          database()
-            .ref('rooms/')
-            .push({
-              name: roomName,
-              creator: fullName,
-              date: new Date().toISOString(),
-            })
-            .then(
-              () =>
-                showMessage({
-                  message: 'Room created successfully',
-                  type: 'success',
-                }),
-              setVisibleModal(!visibleModal),
-              setLoading(false),
-            )
-            .catch(
-              error =>
-                showMessage({
-                  message: error.code,
-                  type: 'danger',
-                }),
-              setVisibleModal(!visibleModal),
-              setLoading(false),
-            );
-        }
+    try {
+      const fullName = await getFullName();
+      await database().ref('rooms/').push({
+        name: roomName,
+        creator: fullName,
+        date: new Date().toISOString(),
       });
+      showMessage({
+        message: 'Room created successfully',
+        type: 'success',
+      });
+    } catch (error) {
+      showMessage({
+        message: error.message || 'Something went wrong',
+        type: 'danger',
+      });
+    } finally {
+      setVisibleModal(false);
+      setLoading(false);
+    }
   };
 
   React.useEffect(() => {
@@ -64,15 +47,17 @@ const HomeScreen = () => {
       .ref('/rooms')
       .on('value', snapshot => {
         const val = snapshot.val();
-        if (val) {
-          const parserdData = useParseRoomData(val);
-          setRoomList(parserdData);
-        }
+        const parserdData = useParseRoomData(val || {});
+        setRoomList(parserdData);
       });
   }, []);
 
+  const onMessage = item => {
+    navigation.navigate('MessageScreen', {data: item});
+  };
+
   const renderRoomCard = ({item}) => {
-    return <RoomCard item={item} onPress={() => console.log(item.name)} />;
+    return <RoomCard item={item} onPress={() => onMessage(item)} />;
   };
 
   return (

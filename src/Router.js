@@ -5,6 +5,7 @@ import LogInScreen from './screens/LogInScreen/LogIn';
 import RegisterScreen from './screens/RegisterScreen/RegisterScreen';
 import OnBoardingScreen from './screens/OnBoardingScreen/OnBoardingScreen';
 import HomeScreen from './screens/HomeScreen/HomeScreen';
+import MessageScreen from './screens/MessageScreen/MessageScreen';
 import TabBar from './navigator/TabBar/TabBar';
 import auth from '@react-native-firebase/auth';
 
@@ -31,6 +32,7 @@ const Router = () => {
         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
 
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="MessageScreen" component={MessageScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
