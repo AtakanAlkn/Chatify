@@ -1,79 +1,106 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Chatify
 
-# Getting Started
+## Overview
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+**Chatify** is a simple chat application that allows users to create rooms, exchange messages in real-time, and perform email login/logout operations. It leverages Firebase Authentication and Realtime Database to provide a seamless real-time messaging experience.
 
-## Step 1: Start the Metro Server
+## Project Preview
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+<div style="display: flex; flex-direction: row; justify-content: center;">
+<div style="display: flex; flex-direction: row; margin-right: 20;">
+    <img src="images/h1.gif" alt="Preview Gif" width="300">
+  </div>
+  <div style="display: flex; flex-direction: row; margin-right: 20;">
+    <img src="images/m1.jpeg" alt="Main Screen" width="300" style="margin-right: 200;">
+    <img src="images/m2.jpeg" alt="Create Account" width="300">
+  </div>
+  <div style="display: flex; flex-direction: row; margin-right: 20px;"> 
+    <img src="images/m3.jpeg" alt="Create Account" width="300" style="margin-right: 200;">
+     <img src="images/m4.jpeg" alt="Login" width="300" style="margin-right: 20;justify-content: center;">
+  </div>
+  <div style="display: flex; flex-direction: row; margin-right: 20px;"> 
+    <img src="images/m5.jpeg" alt="Rooms" width="300" style="margin-right: 200;">
+     <img src="images/m6.jpeg" alt="Chat" width="300" style="margin-right: 20;justify-content: center;">
+  </div>
+  </div>
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Design Notice
 
-```bash
-# using npm
-npm start
+The design is personally crafted, presenting a minimalistic layout for the basit chat application.
 
-# OR using Yarn
-yarn start
-```
+This chat application is developed using the following technologies and features:
 
-## Step 2: Start your Application
+## Features
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+-Room Creation and Joining: Users can create new rooms or join existing ones.
+-Real-Time Messaging: Users can exchange text messages instantly within the selected room.
+-Email Login/Logout: Secure email-based login and logout operations are performed using Firebase Authentication.
+-Realtime Message Storage: Messages and rooms are stored and updated in real-time using Firebase Realtime Database.
+-Message Replies: Users can reply to other messages, enhancing the interactivity of the chat.
 
-### For Android
+## Technologies Used
 
-```bash
-# using npm
-npm run android
+-React Native: A widely-used JavaScript framework for building cross-platform mobile applications.
+-Firebase: Firebase Authentication and Realtime Database services provide a robust and secure infrastructure.
+-Formik and Yup: Formik simplifies form management, while Yup handles form validation, ensuring data consistency and user input accuracy.
 
-# OR using Yarn
-yarn android
-```
+## Getting Started
 
-### For iOS
+To run this project locally, follow these steps:
 
-```bash
-# using npm
-npm run ios
+1. **Clone the repository:**
 
-# OR using Yarn
-yarn ios
-```
+   ```bash
+   git clone https://github.com/AtakanAlkn/Chatify.git
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+   ```
 
-## Step 3: Modifying your App
+2. **Navigate to the project directory:**
 
-Now that you have successfully run the app, let's modify it.
+   cd Chatify.git
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+3. **Install dependencies:**
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+   npm install
+   or
+   yarn install
 
-## Congratulations! :tada:
+4. **Start the development server:**
 
-You've successfully run and modified your React Native App. :partying_face:
+   npm start
+   or
+   yarn start
 
-### Now what?
+5. **Run on iOS or Android:**
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+   To run the app on iOS or Android simulators/emulators, use the following commands respectively:
 
-# Troubleshooting
+   npm run ios
+   npm run android
+   or
+   yarn ios
+   yarn android
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+**Congratulations!**
+You've successfully set up and started the project locally. Feel free to explore the code, make changes, and test new features.
 
-# Learn More
+**Troubleshooting**
+If you encounter any issues during the setup process or while running the app, consider the following steps:
 
-To learn more about React Native, take a look at the following resources:
+Double-check that you've correctly configured your environment variables in the .env file.
+Ensure you have Node.js and npm (or yarn) installed on your system.
+Make sure you have Xcode (for iOS development) or Android Studio (for Android development) properly set up.
+Clear the npm or yarn cache and node_modules directory, then run the installation step again.
+If the problem persists, please open an issue on our GitHub repository. We'll be glad to assist you!
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## License
+
+This repository is licensed under the [MIT License](LICENSE).
+
+## Contact
+
+If you have any questions, suggestions, or just want to connect, you can reach me at:
+
+- Email: alkan.atakan@outlook.com
+- LinkedIn: [Atakan Alkan](https://www.linkedin.com/in/atakanalkn/)
