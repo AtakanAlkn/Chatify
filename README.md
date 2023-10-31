@@ -10,7 +10,7 @@
 <div style="display: flex; flex-direction: row; margin-right: 20;">
     <img src="images/h1.gif" alt="Preview Gif" width="300">
   </div>
-  <div style="display: flex; flex-direction: row; margin-right: 20;">
+  <div style="display: flex; flex-direction: row; margin-right: 20; margin-bottom: 20;">
     <img src="images/m1.jpeg" alt="Main Screen" width="300" style="margin-right: 200;">
     <img src="images/m2.jpeg" alt="Create Account" width="300">
   </div>
@@ -32,17 +32,17 @@ This chat application is developed using the following technologies and features
 
 ## Features
 
--Room Creation and Joining: Users can create new rooms or join existing ones.
--Real-Time Messaging: Users can exchange text messages instantly within the selected room.
--Email Login/Logout: Secure email-based login and logout operations are performed using Firebase Authentication.
--Realtime Message Storage: Messages and rooms are stored and updated in real-time using Firebase Realtime Database.
--Message Replies: Users can reply to other messages, enhancing the interactivity of the chat.
+- Room Creation and Joining: Users can create new rooms or join existing ones.
+- Real-Time Messaging: Users can exchange text messages instantly within the selected room.
+- Email Login/Logout: Secure email-based login and logout operations are performed using Firebase Authentication.
+- Realtime Message Storage: Messages and rooms are stored and updated in real-time using Firebase Realtime Database.
+- Message Replies: Users can reply to other messages, enhancing the interactivity of the chat.
 
 ## Technologies Used
 
--React Native: A widely-used JavaScript framework for building cross-platform mobile applications.
--Firebase: Firebase Authentication and Realtime Database services provide a robust and secure infrastructure.
--Formik and Yup: Formik simplifies form management, while Yup handles form validation, ensuring data consistency and user input accuracy.
+- React Native: A widely-used JavaScript framework for building cross-platform mobile applications.
+- Firebase: Firebase Authentication and Realtime Database services provide a robust and secure infrastructure.
+- Formik and Yup: Formik simplifies form management, while Yup handles form validation, ensuring data consistency and user input accuracy.
 
 ## Getting Started
 
