@@ -7,19 +7,21 @@
 ## Project Preview
 
 <div style="display: flex; flex-direction: row; justify-content: center;">
-<div style="display: flex; flex-direction: row; margin-right: 20; margin-bottom: 20;">
+<div style="display: flex; flex-direction: row; margin-right: 20; margin-bottom: 10;">
     <img src="images/h1.gif" alt="Preview Gif" width="300">
   </div>
     <hr>
-  <div style="display: flex; flex-direction: row; margin-right: 20; margin-bottom: 20;">
+  <div style="display: flex; flex-direction: row; margin-right: 20; margin-bottom: 10;">
     <img src="images/m1.jpeg" alt="Main Screen" width="300" style="margin-right: 200;">
     <img src="images/m2.jpeg" alt="Create Account" width="300">
   </div>
-  <div style="display: flex; flex-direction: row; margin-right: 20;margin-bottom: 20;"> 
+    <hr>
+  <div style="display: flex; flex-direction: row; margin-right: 20;margin-bottom: 10;"> 
     <img src="images/m3.jpeg" alt="Create Account" width="300" style="margin-right: 200;">
      <img src="images/m4.jpeg" alt="Login" width="300" style="margin-right: 20;justify-content: center;">
   </div>
-  <div style="display: flex; flex-direction: row; margin-right: 20;margin-bottom: 20;"> 
+    <hr>
+  <div style="display: flex; flex-direction: row; margin-right: 20;margin-bottom: 10;"> 
     <img src="images/m5.jpeg" alt="Rooms" width="300" style="margin-right: 200;">
      <img src="images/m6.jpeg" alt="Chat" width="300" style="margin-right: 20;justify-content: center;">
   </div>
